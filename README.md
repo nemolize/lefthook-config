@@ -1,2 +1,2 @@
-# lefthook-config
-Shared Lefthook config
+# lefthook-configs
+Shared Lefthook configs
