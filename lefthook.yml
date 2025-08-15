@@ -8,6 +8,7 @@ pre-commit:
       stage_fixed: true
 post-merge:
   files: "git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD"
+  parallel: true
   commands:
     pnpm-install:
       glob: "pnpm-lock.yaml"
