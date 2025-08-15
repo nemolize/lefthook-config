@@ -1,10 +1,10 @@
 pre-commit:
   jobs:
-    - run: npx eslint {staged_files} --fix
-      glob: "*.{js,mjs,jsx,ts,tsx}"
+    - glob: "*.{js,mjs,jsx,ts,tsx}"
+      run: npx eslint {staged_files} --fix
       stage_fixed: true
-    - run: npx prettier --write {staged_files}
-      glob: "*.{js,mjs,jsx,ts,tsx,json,md,yml,yaml}"
+    - glob: "*.{js,mjs,jsx,ts,tsx,json,md,yml,yaml}"
+      run: npx prettier --write {staged_files}
       stage_fixed: true
 post-merge:
   files: "git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD"
