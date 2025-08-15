@@ -12,3 +12,6 @@ post-merge:
     pnpm-install:
       glob: "pnpm-lock.yaml"
       run: pnpm install
+    mise-install:
+      glob: "{.mise.toml,mise.toml}"
+      run: mise install
