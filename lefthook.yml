@@ -6,3 +6,9 @@ pre-commit:
     - run: npx prettier --write {staged_files}
       glob: "*.{js,mjs,jsx,ts,tsx,json,md,yml,yaml}"
       stage_fixed: true
+post-merge:
+  files: "git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD"
+  commands:
+    pnpm-install:
+      glob: "pnpm-lock.yaml"
+      run: pnpm install
