@@ -9,10 +9,8 @@ pre-commit:
 post-merge:
   files: "git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD"
   parallel: true
-  commands:
-    pnpm-install:
-      glob: "pnpm-lock.yaml"
+  jobs:
+    - glob: "pnpm-lock.yaml"
       run: pnpm install
-    mise-install:
-      glob: "{.mise.toml,mise.toml}"
+    - glob: "{.mise.toml,mise.toml}"
       run: mise install
